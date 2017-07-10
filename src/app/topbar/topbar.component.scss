@@ -1,0 +1,24 @@
+:host {
+	.cbtn {
+		vertical-align: top;
+	    overflow: hidden;
+	}
+
+	.cbtnSymbol {
+		width: 30px;
+		display: inline-block;
+		text-align: center;
+		height: 30px;
+	}
+
+	.cbtnLabel {
+		height: 30px;
+		display: inline-block;
+	    line-height: 30px;
+	}
+
+
+	span {
+	    float: left;
+	}
+}

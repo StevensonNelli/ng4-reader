@@ -1,18 +1,26 @@
+<!-- MD layout -->
+<!-- Header -->
 <app-topbar></app-topbar>
+<!-- End Header -->
+<!-- Body -->
 <div class="app-container">
     <md-sidenav-container class="sidenav-container-cls">
-  <md-sidenav opened="true" mode="side">
+    	<!-- side navigation panel -->
+     	<md-sidenav opened="true" mode="side">
 
-    <app-sidebar>
+		    <app-sidebar>
 
-    </app-sidebar>
-    
-  </md-sidenav>
+		    </app-sidebar>
+	    
+	  	</md-sidenav>
+	  	<!-- end side navigation panel -->
+	    <!-- primary content -->
+		<app-content>
 
-  <!-- primary content -->
-  <app-content>
+		</app-content>
+		<!-- end primary content -->
 
-  </app-content>
-</md-sidenav-container>
+	</md-sidenav-container>
 
 </div>
+<!-- End Body -->
