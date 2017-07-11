@@ -1,6 +1,9 @@
 <!-- tree panel -->
 <div class="section top-sidebar">
-    tree compoenet
+    <p-tree [value]="files" selectionMode="single" [(selection)]="selectedFile" 
+    (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)">
+    	
+    </p-tree>
 </div>
 <!-- end tree panel -->
 <!-- stats panel -->

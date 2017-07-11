@@ -9,6 +9,8 @@ import 'hammerjs';
 import { ContentComponent } from './content/content.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TopbarComponent } from './topbar/topbar.component';
+import { ArticleService } from './article.service';
+import { SharedModule, DataTableModule, TreeModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,12 @@ import { TopbarComponent } from './topbar/topbar.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
+    TreeModule,
+    DataTableModule
   ],
-  providers: [],
+  providers: [ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
