@@ -1,1 +1,22 @@
-<div> <div style="margin-top:8px">Selected Node: {{selectedArticle ? selectedArticle.label : 'none'}}</div> </div>
+<div> <div style="margin-top:8px">Selected Node: {{article | json}}</div> </div>
+<md-tab-group [selectedIndex]="selectedTab">
+  <md-tab *ngFor="let link of getnavLinks()" 
+  	label="{{link? link?.label : none }}">
+
+    <h1>{{link?.data}}</h1>
+
+  </md-tab>
+</md-tab-group>
+
+<!-- Tabs with routing  -->
+<!-- <nav md-tab-nav-bar>
+  <a md-tab-link
+     *ngFor="let link of navLinks"
+     [routerLink]="link"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{tabLink.label}}
+  </a>
+</nav>
+
+<router-outlet></router-outlet> -->

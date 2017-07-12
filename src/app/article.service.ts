@@ -7,7 +7,7 @@ export class ArticleService {
 
 	public selectedArticles:any = [];
 
-	public recentSelectedArticle = [];
+	public recentSelectedArticle:Object;
 
     constructor(private http: Http) {}
 
@@ -21,7 +21,7 @@ export class ArticleService {
     getSelectedArticles(){
     	return this.selectedArticles;
     }
-    getRecentArticles(){
+    getRecentArticle(){
     	return this.recentSelectedArticle;
     }
     storeRecentArticle(records:any) {

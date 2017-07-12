@@ -11,6 +11,7 @@ export class SidebarComponent implements OnInit {
 	files: TreeNode[];
 	selectedFiles: TreeNode[];
 	msgs: any;
+	selectedArticle: any;
     constructor(private articleService: ArticleService) {
 
     }
@@ -19,8 +20,8 @@ export class SidebarComponent implements OnInit {
         this.articleService.getFiles().subscribe(files => this.files = files);
     }
     nodeSelect(event) {
-        this.msgs = [];
-        this.msgs.push({severity: 'info', summary: 'Node Selected', detail: event.node.label});
+        this.articleService.storeSelectedArticles(this.selectedArticle);
+        this.articleService.storeRecentArticle(this.selectedArticle);
     }
     
     nodeUnselect(event) {

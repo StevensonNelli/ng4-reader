@@ -7,6 +7,7 @@
             "data": "Documents Folder",
             "expandedIcon": "fa-folder-open",
             "collapsedIcon": "fa-folder",
+            "id":1,
             "children": [{
                     "label": "Work",
                     "data": "Work Folder",
@@ -27,6 +28,7 @@
             "data": "Pictures Folder",
             "expandedIcon": "fa-folder-open",
             "collapsedIcon": "fa-folder",
+            "id":2,
             "children": [
                 {"label": "barcelona.jpg", "icon": "fa-file-image-o", "data": "Barcelona Photo"},
                 {"label": "logo.jpg", "icon": "fa-file-image-o", "data": "PrimeFaces Logo"},
@@ -37,6 +39,7 @@
             "data": "Movies Folder",
             "expandedIcon": "fa-folder-open",
             "collapsedIcon": "fa-folder",
+            "id":3,
             "children": [{
                     "label": "Al Pacino",
                     "data": "Pacino Movies",

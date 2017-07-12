@@ -13,4 +13,15 @@
     .stats-btn-cls{
 		margin:20px !important;
 	}
+    p-tree{
+        .ui-widget-content {
+            border: 0px solid #303030 !important;
+            background: #ffffff;
+            color: #f7e1ea;
+            background-color: #424242 !important;
+        }
+        .ui-state-highlight{
+            background: #c2185b !important;
+        }
+    }
 }
