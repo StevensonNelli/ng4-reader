@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+p-tree{
+    .ui-widget-content {
+        border: 0px solid #303030 !important;
+        background: #ffffff;
+        color: #f7e1ea;
+        background-color: #424242 !important;
+    }
+    .ui-state-highlight{
+        background: #c2185b !important;
+    }
+}

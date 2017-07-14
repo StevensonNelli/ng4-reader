@@ -25,19 +25,19 @@ export class ContentComponent implements OnInit {
 		if(this.recentArticle) {
 			if( this.articles.length == 0) {
 				this.articles.push(this.recentArticle);
-				this.selectedTab = 0;
+				//this.selectedTab = 0;
 
 			} else {
 
 				for(let i = 0; this.articles.length > i; i++){
 					if(this.recentArticle["id"] == this.articles[i].id){
 						matched = true;
-						this.selectedTab = i
+						//this.selectedTab = i
 					}
 				}
 				if(!matched){
 					this.articles.push(this.recentArticle);
-					this.selectedTab = this.articles.length;
+					//this.selectedTab = this.articles.length;
 				}
 			}
 			
