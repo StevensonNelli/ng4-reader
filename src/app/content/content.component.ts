@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ArticleService } from '../article.service';
-import { Article } from '../app.models';
+import { Article } from '../app.model';
+import {RouterModule, Router} from '@angular/router';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -12,12 +13,14 @@ export class ContentComponent implements OnInit {
 	articles: any = [];
 	recentArticle:Article = {};
 	selectedTab:any = 0;
-	constructor(private articleService: ArticleService) { }
+	
+	constructor(private articleService: ArticleService, private router: Router) { }
 
 	ngOnInit() {
-		
+		//debugger;
+		//this.articles.push(this.article);
+		//this.articles = this.articles.indexOf(this.articles.find(tab => this.router.url.indexOf(tab.link) != -1));
 	}
-
 	getnavLinks(){
 		//let selectedArticles = this.articleService.getSelectedArticles();
 		this.recentArticle = this.articleService.getRecentArticle();

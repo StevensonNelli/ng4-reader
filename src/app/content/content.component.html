@@ -1,22 +1,22 @@
 <!-- <div> <div style="margin-top:8px">Selected Node: {{article | json}}</div> </div> -->
-<md-tab-group [selectedIndex]="selectedTab">
+<!--<md-tab-group [selectedIndex]="selectedTab">
   <md-tab *ngFor="let link of getnavLinks()" 
   	label="{{link? link?.label : none }}">
 
     <h1>{{link?.data}}</h1>
 
   </md-tab>
-</md-tab-group>
+</md-tab-group>-->
 
 <!-- Tabs with routing  -->
-<!-- <nav md-tab-nav-bar>
+ <nav md-tab-nav-bar >
   <a md-tab-link
-     *ngFor="let link of navLinks"
-     [routerLink]="link"
+     *ngFor="let article of getnavLinks(); let i = index"
+     [routerLink]="article.id"
      routerLinkActive #rla="routerLinkActive"
      [active]="rla.isActive">
-    {{tabLink.label}}
+    {{article.label}}
   </a>
 </nav>
 
-<router-outlet></router-outlet> -->
+<router-outlet></router-outlet> 

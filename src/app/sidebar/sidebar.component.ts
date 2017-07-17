@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TreeModule,TreeNode } from 'primeng/primeng';
 import { ArticleService } from '../article.service';
 
@@ -12,9 +13,10 @@ export class SidebarComponent implements OnInit {
 	selectedFiles: TreeNode[];
 	msgs: any;
 	selectedArticle: any;
-    constructor(private articleService: ArticleService) {
-
-    }
+    constructor(
+        private articleService: ArticleService,
+        private router: Router
+        ) { }
     
     ngOnInit() {
         this.articleService.getFiles().subscribe(files => this.files = files);
@@ -22,6 +24,7 @@ export class SidebarComponent implements OnInit {
     nodeSelect(event) {
         this.articleService.storeSelectedArticles(this.selectedArticle);
         this.articleService.storeRecentArticle(this.selectedArticle);
+        this.router.navigate(['article', this.selectedArticle.id]);
     }
     
     nodeUnselect(event) {
