@@ -20,4 +20,6 @@ let routes : Route[] = [{
     }]
 }];
 
-export default RouterModule.forRoot(routes);
+export const AppRouterModule = RouterModule.forRoot(routes);
+//Getting issue with below line #Refs https://github.com/angular/angular-cli/issues/3826
+///export default RouterModule.forRoot(routes);

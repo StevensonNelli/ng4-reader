@@ -1,0 +1,11 @@
+<md-menu #menu="mdMenu">
+  <div *ngFor="let option of options">
+    <!--<button md-menu-item>{{option.name}}</button>-->
+    <button md-menu-item (click)="currentLang = option">
+      {{option.name}}
+    </button>
+  </div>
+</md-menu>
+<button md-raised-button [mdMenuTriggerFor]="menu">
+{{currentLang?.name ? currentLang?.name : language }}
+</button>

@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import AppRouterModule from './app.router';
+import { AppRouterModule } from './app.router';
 
 import { AppComponent } from './app.component';
 import 'hammerjs';
@@ -13,6 +13,8 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { ArticleService } from './article.service';
 import { SharedModule, DataTableModule, TreeModule } from 'primeng/primeng';
 import { ArticleTabComponent } from './article-tab/article-tab.component';
+import { ThemePickerComponent } from './theme-picker/theme-picker.component';
+import { LangPickerComponent } from './lang-picker/lang-picker.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ArticleTabComponent } from './article-tab/article-tab.component';
     TopbarComponent,
     SidebarComponent,
     ContentComponent,
-    ArticleTabComponent
+    ArticleTabComponent,
+    ThemePickerComponent,
+    LangPickerComponent
   ],
   imports: [
     BrowserModule,

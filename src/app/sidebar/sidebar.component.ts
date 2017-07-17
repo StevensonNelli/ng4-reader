@@ -22,7 +22,6 @@ export class SidebarComponent implements OnInit {
         this.articleService.getFiles().subscribe(files => this.files = files);
     }
     nodeSelect(event) {
-        this.articleService.storeSelectedArticles(this.selectedArticle);
         this.articleService.storeRecentArticle(this.selectedArticle);
         this.router.navigate(['article', this.selectedArticle.id]);
     }
