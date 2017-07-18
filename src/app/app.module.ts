@@ -15,6 +15,7 @@ import { SharedModule, DataTableModule, TreeModule } from 'primeng/primeng';
 import { ArticleTabComponent } from './article-tab/article-tab.component';
 import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { LangPickerComponent } from './lang-picker/lang-picker.component';
+import { StatsTabComponent } from './stats-tab/stats-tab.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LangPickerComponent } from './lang-picker/lang-picker.component';
     ContentComponent,
     ArticleTabComponent,
     ThemePickerComponent,
-    LangPickerComponent
+    LangPickerComponent,
+    StatsTabComponent
   ],
   imports: [
     BrowserModule,
