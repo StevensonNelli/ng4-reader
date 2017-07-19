@@ -1,5 +1,6 @@
 import { ContentComponent } from './content/content.component';
 import { ArticleTabComponent } from './article-tab/article-tab.component';
+import { StatsTabComponent } from './stats-tab/stats-tab.component';
 
 import { RouterModule, Route } from '@angular/router';
 
@@ -17,6 +18,9 @@ let routes : Route[] = [{
     },{
         path:':id',
         component:ArticleTabComponent
+    },{
+        path:'stats',
+        component:StatsTabComponent
     }]
 }];
 

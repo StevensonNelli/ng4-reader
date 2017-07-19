@@ -9,7 +9,7 @@
 </md-tab-group>-->
 
 <!-- Tabs with routing  -->
- <nav md-tab-nav-bar >
+<!--  <nav md-tab-nav-bar >
   <a md-tab-link
      *ngFor="let article of getnavLinks(); let i = index"
      [routerLink]="article.id"
@@ -17,6 +17,22 @@
      [active]="rla.isActive">
     {{article.label}}
   </a>
-</nav>
+</nav> -->
+<md-tab-group #tabg>
+ <md-tab
+     *ngFor="let article of getnavLinks(); let i = index"
+     [routerLink]="article.id"
+     routerLinkActive #rla="routerLinkActive"
+     position=0
+    
+     >
+    
+     <ng-template md-tab-label>
+      {{article.label}}
+    </ng-template>
+   </md-tab>
+     
+</md-tab-group>
+   
 
 <router-outlet></router-outlet> 
