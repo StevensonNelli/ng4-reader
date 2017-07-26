@@ -25,13 +25,14 @@ export class ContentComponent implements OnInit {
 					let idIndex = url.lastIndexOf("/")
 					let id = url.substring(idIndex+1);
 					let element;
-					for (let index = 0; index < this.articles.length; index++) {
-						if(id == this.articles[index].id){
-							element = this.articles[index];
-						}
-					}
-					this.articles.indexOf(element);
-					//console.log('NavigationEnd:', st.substring(8+1));
+					// for (let index = this.articles.length; index >= this.articles.length; index--) {
+					// 	if(id == this.articles[index].id){
+					// 		element = this.articles[index];
+					// 	}
+					// }
+					// var el = this.articles.indexOf(element);
+					console.log('NavigationEnd:', this.articles.length);
+					
 				}
 			});
 	}
