@@ -16,7 +16,7 @@ import { ArticleTabComponent } from './article-tab/article-tab.component';
 import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { LangPickerComponent } from './lang-picker/lang-picker.component';
 import { StatsTabComponent } from './stats-tab/stats-tab.component';
-
+import { ArticleResolver } from './article.resolve';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,7 @@ import { StatsTabComponent } from './stats-tab/stats-tab.component';
     AppRouterModule,
     DataTableModule
   ],
-  providers: [ArticleService],
+  providers: [ArticleService,ArticleResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

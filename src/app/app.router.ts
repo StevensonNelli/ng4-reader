@@ -1,6 +1,7 @@
 import { ContentComponent } from './content/content.component';
 import { ArticleTabComponent } from './article-tab/article-tab.component';
 import { StatsTabComponent } from './stats-tab/stats-tab.component';
+import { ArticleResolver } from './article.resolve';
 
 import { RouterModule, Route } from '@angular/router';
 
@@ -17,7 +18,10 @@ let routes : Route[] = [{
         redirectTo:'all'
     },{
         path:':id',
-        component:ArticleTabComponent
+        component:ArticleTabComponent,
+        resolve: {
+            article: ArticleResolver
+        }
     },{
         path:'stats',
         component:StatsTabComponent
