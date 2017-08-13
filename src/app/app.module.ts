@@ -17,6 +17,7 @@ import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { LangPickerComponent } from './lang-picker/lang-picker.component';
 import { StatsTabComponent } from './stats-tab/stats-tab.component';
 import { ArticleResolver } from './article.resolve';
+
 @NgModule({
   declarations: [
     AppComponent,

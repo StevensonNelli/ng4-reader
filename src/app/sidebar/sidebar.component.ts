@@ -24,10 +24,10 @@ export class SidebarComponent implements OnInit {
     }
     nodeSelect(event) {
         // Condition for preventing "All Articles" rootnode navigation
-        if (this.selectedArticle.id) {
+        // if (this.selectedArticle.id === 0 || this.selectedArticle.id) {
             this.articleService.storeRecentArticle(this.selectedArticle);
-            this.router.navigate(['article', this.selectedArticle.id]);
-        }
+            this.router.navigate(['article', this.selectedArticle.id === 0 ? 'all' : this.selectedArticle.id]);
+        // }
     }
     onStatsClick(event) {
         let statTab = { 
@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
             "label": "Stats" 
         };
         this.articleService.storeRecentArticle(statTab);
-        this.router.navigate(['article', statTab.id]);
+        this.router.navigate(['article', 'stats']);
     }
 
 }

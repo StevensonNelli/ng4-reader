@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { ArticleService } from '../article.service';
 import { Article } from '../app.model';
-import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { RouterModule, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 @Component({
 	selector: 'app-content',
 	templateUrl: './content.component.html',
@@ -9,55 +9,35 @@ import { RouterModule, Router, NavigationEnd } from '@angular/router';
 })
 export class ContentComponent implements OnInit {
 
-	@Input() article: any;
-	articles: any = [];
-	recentArticle: Article = {};
-	activatedTab: any = 0;
+	article: any;
+	articles: any[] = [];
+	activeTabIndex: number;
 
-	constructor(private articleService: ArticleService, private router: Router) { }
+	constructor(private articleService: ArticleService, private route: ActivatedRoute, private router: Router) { }
 
-	ngOnInit() { 
-		let me = this;
+	ngOnInit() {
+		this.article = this.route.snapshot.data['article'];
+		this.articles.push(this.article);
 		this.router.events
 			.subscribe((event) => {
 				if (event instanceof NavigationEnd) {
-					let url = event.url;
-					let idIndex = url.lastIndexOf("/")
-					let id = url.substring(idIndex+1);
-					let element;
-					// for (let index = this.articles.length; index >= this.articles.length; index--) {
-					// 	if(id == this.articles[index].id){
-					// 		element = this.articles[index];
-					// 	}
-					// }
-					// var el = this.articles.indexOf(element);
-					console.log('NavigationEnd:', this.articles.length);
-					
+					let snap = this.route.snapshot;
+					this.article = snap.data['article'];
+					let id = snap.params['id'];
+					let isStats = event.url.indexOf('stats') !== -1;
+					let existingIndex = this.articles.map(s => s.id).indexOf(this.article.id);
+					if (existingIndex === -1) {
+						this.articles.push(this.article);
+						this.activeTabIndex = this.articles.length - 1;
+					} else {
+						this.activeTabIndex = existingIndex;
+					}
+
 				}
 			});
 	}
-	onTabChange(event) {
-		this.router.navigate(['article', this.recentArticle.id]);
-	}
-	getnavLinks() {
-		//let selectedArticles = this.articleService.getSelectedArticles();
-		this.recentArticle = this.articleService.getRecentArticle();
-		let matched = false;
-		if (this.recentArticle) {
-			if (this.articles.length == 0) {
-				this.articles.push(this.recentArticle);
-			} else {
-
-				for (let i = 0; this.articles.length > i; i++) {
-					if (this.recentArticle["id"] == this.articles[i].id) {
-						matched = true;
-					}
-				}
-				if (!matched) {
-					this.articles.push(this.recentArticle);
-				}
-			}
-		}
-		return this.articles;
+	onTabChange(index: number) {
+		this.article = this.articles[index];
+		this.router.navigate(this.article.id === 'stats' ? ['stats'] : ['article', this.article.id]);
 	}
 }

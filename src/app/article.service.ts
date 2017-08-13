@@ -16,19 +16,19 @@ export class ArticleService {
     constructor(private http: Http) {
         this.getFiles().subscribe(articles => {
         //let articlesArray: any =[];
-          let myFun = (articles:any) =>{
+          let myFun = (articles:any) => {
 
                 for (let i = 0; i < articles.length; i++) {
                     //let obj = {};
                     if (articles[i].children) {
-                        if (!articles[i].id) {
+                        if (articles[i].id !== 0 && !articles[i].id) {
                             articles[i].id = Math.floor(Math.random() * 2000);
                         }
                         this.articlesMap[articles[i].id] = articles[i]
                         //articlesArray.push(obj);
                         myFun(articles[i].children);
                     } else {
-                        if (!articles[i].id) {
+                        if (articles[i].id !== 0 && !articles[i].id) {
                             articles[i].id = Math.floor(Math.random() * 4000);
                         }
                         this.articlesMap[articles[i].id] = articles[i]
@@ -70,8 +70,14 @@ export class ArticleService {
     	this.recentSelectedArticle = records;
     }
     getArticleByID(id: string){
-        return this.articles$.flatMap(articles => {
-            return Observable.of(this.articlesMap[id]);
+        return this.getFiles().flatMap(articles => {
+            let selectedArticle;
+            if(id === 'all') {
+                selectedArticle = this.articlesMap[0];
+            } else {
+                selectedArticle = this.articlesMap[id];
+            }
+            return Observable.of(selectedArticle);
         });
     }
 }

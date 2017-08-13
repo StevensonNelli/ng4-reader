@@ -18,9 +18,9 @@
     {{article.label}}
   </a>
 </nav> -->
-<md-tab-group ([selectedIndex])="activatedTab" (selectedIndexChange)="activatedTab" (selectChange)="onTabChange($event)">
- <md-tab
-     *ngFor="let article of getnavLinks(); let i = index"
+<!--<md-tab-group ([selectedIndex])="activatedTab" (selectedIndexChange)="activatedTab" (selectChange)="onTabChange($event)">-->
+<!--<md-tab
+     *ngFor="let article of articles; let i = index"
      [routerLink]="article.id"
      routerLinkActive #rla="routerLinkActive"
      position="article.id"
@@ -28,13 +28,20 @@
      content="article.id"
      textLabel="article.label"
      >
-    
     <ng-template md-tab-label>
       {{article.label}}
     </ng-template>
-   </md-tab>
-     
-</md-tab-group>
-   
+   </md-tab>-->
+<md-tab-group [(selectedIndex)]="activeTabIndex" (selectedIndexChange)="onTabChange($event)">
+  <md-tab *ngFor="let article of articles" [label]="article.label">
+    Selected Article: {{article?.id}} - {{article?.label}}
+    <div [ngSwitch]="article?.id">
+      <app-stats-tab *ngSwitchCase="'stats'"></app-stats-tab>
+      <app-article-tab *ngSwitchDefault  [article]="article"></app-article-tab>
+    </div>
+  </md-tab>
 
-<router-outlet></router-outlet> 
+</md-tab-group>
+
+
+<!--<router-outlet></router-outlet> -->
