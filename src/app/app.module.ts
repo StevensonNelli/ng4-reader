@@ -17,6 +17,7 @@ import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { LangPickerComponent } from './lang-picker/lang-picker.component';
 import { StatsTabComponent } from './stats-tab/stats-tab.component';
 import { ArticleResolver } from './article.resolve';
+import { ChartModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ArticleResolver } from './article.resolve';
     SharedModule,
     TreeModule,
     AppRouterModule,
-    DataTableModule
+    DataTableModule,
+    ChartModule
   ],
   providers: [ArticleService,ArticleResolver],
   bootstrap: [AppComponent]

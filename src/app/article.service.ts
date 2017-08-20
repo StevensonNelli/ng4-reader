@@ -12,11 +12,17 @@ export class ArticleService {
     
     private articles$: ReplaySubject<any>;
     articlesMap: any ={};
+    articleLabels:any = [];
+    articlePostCount:any = [];
     
     constructor(private http: Http) {
         this.getFiles().subscribe(articles => {
-        //let articlesArray: any =[];
-          let myFun = (articles:any) => {
+            //Stats chart data
+            articles[0].children.forEach(element => {
+                this.articleLabels.push(element.label);
+                this.articlePostCount.push(element.post_count)
+            });
+            let myFun = (articles:any) => {
 
                 for (let i = 0; i < articles.length; i++) {
                     //let obj = {};
@@ -38,11 +44,6 @@ export class ArticleService {
                 }
            }
             myFun(articles);
-            // for (let j = 0; j < articlesArray.length; j++) {
-            //     let key = Object.keys(articlesArray[j])
-            //     this.articlesMap[key[0]] = articlesArray[j][key[0]];
-            // }
-            console.log('this is article array : ', this.articlesMap );
         });
     }
 
@@ -79,5 +80,11 @@ export class ArticleService {
             }
             return Observable.of(selectedArticle);
         });
+    }
+    getArticleLabels(){
+        return this.articleLabels;
+    }
+    getArticlePostCount(){
+        return this.articlePostCount;
     }
 }

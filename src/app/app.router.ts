@@ -1,4 +1,3 @@
-import { TestComponent } from './test/test.component';
 import { ContentComponent } from './content/content.component';
 import { ArticleTabComponent } from './article-tab/article-tab.component';
 import { StatsTabComponent } from './stats-tab/stats-tab.component';

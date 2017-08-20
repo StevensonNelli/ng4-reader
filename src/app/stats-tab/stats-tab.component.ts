@@ -1,3 +1,4 @@
+import { ArticleService } from './../article.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatsTabComponent implements OnInit {
 
-  constructor() { }
+  data: any;
+
+    constructor(public articleService: ArticleService) {
+        // this.articleService.getFiles().subscribe();
+    }
 
   ngOnInit() {
+      this.data = {
+            labels: this.articleService.getArticleLabels(),
+            datasets: [
+                {
+                    data: this.articleService.getArticlePostCount(),
+                    backgroundColor: [
+                        "#FF6384",
+                        "#4caa20",
+                        "#FFCE56",
+                        "#4286f4",
+                        "#ad10b2",
+                        "#ad850c",
+                        "#fc6e2d"
+                    ],
+                    hoverBackgroundColor: [
+                        "#FF6384",
+                        "#4caa20",
+                        "#FFCE56",
+                        "#4286f4",
+                        "#ad10b2",
+                        "#ad850c",
+                        "#fc6e2d"
+                    ]
+                }]    
+            };
   }
 
 }

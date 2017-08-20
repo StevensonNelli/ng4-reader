@@ -33,8 +33,7 @@
     </ng-template>
    </md-tab>-->
 <md-tab-group [(selectedIndex)]="activeTabIndex" (selectedIndexChange)="onTabChange($event)">
-  <md-tab *ngFor="let article of articles" [label]="article.label">
-    Selected Article: {{article?.id}} - {{article?.label}}
+  <md-tab *ngFor="let article of articles" [label]="article?.label">
     <div [ngSwitch]="article?.id">
       <app-stats-tab *ngSwitchCase="'stats'"></app-stats-tab>
       <app-article-tab *ngSwitchDefault  [article]="article"></app-article-tab>

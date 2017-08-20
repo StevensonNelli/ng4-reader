@@ -1,3 +1,22 @@
-<p>
-  article-tab works - Working tab {{article?.id}} - {{article?.label}}
-</p>
+<!--<div *ngIf="isListView">
+{{article.content}}
+</div>-->
+<div *ngIf="isListView" [innerHTML]="article?.content" style="padding-left:10px;"></div>
+<div *ngIf="isCardView">
+<md-card class="example-card" *ngFor="let article of articleList">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{article?.author?.first_name}}</md-card-title>
+    <md-card-subtitle>{{article?.date}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      {{article.title_plain}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+</md-card>
+</div>
